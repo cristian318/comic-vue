@@ -1,0 +1,15 @@
+.star-rating {
+  display: flex;
+  &__star {
+    & > img {
+      user-select: none;
+      -webkit-user-drag: none;
+      cursor: pointer;
+      height: 40px;
+      width: 40px;
+    }
+    &:nth-child(n + 2) {
+      margin-left: 8px;
+    }
+  }
+}
