@@ -7,12 +7,13 @@ const comicApi = new ComicApi();
 export const actions = {
   [types.actions.UPDATE_CURRENT_COMIC]({ state, commit }, payload) {
     const idComic = payload && payload !== '' ? payload : getRandomNumber(1, state.max_count);
-    console.log(idComic, payload);
+    commit(types.mutations.SET_CURRENT_COMIC, {
+      ...state.current_comic,
+      title: '',
+    });
     comicApi
       .getComic(idComic)
       .then(({ data }) => {
-        console.log('data comic');
-        console.log(data);
         commit(types.mutations.SET_CURRENT_COMIC, data);
       })
       .catch((err) => console.log('Error Api', err));
@@ -21,7 +22,6 @@ export const actions = {
     comicApi
       .getInitialData()
       .then(({ data }) => {
-        console.log(data);
         commit(types.mutations.SET_MAX_COUNT, data.num);
         dispatch(types.actions.UPDATE_CURRENT_COMIC, payload);
       })
