@@ -1,7 +1,19 @@
 <template>
-  <div>
+  <section class="comic">
+    <div class="comic__title">
+      {{ current_comic.safe_title }}
+    </div>
+    <div class="comic__img">
+      <img :src="current_comic.img" alt="comic" />
+    </div>
     <StarRating v-model="starModel" />
-  </div>
+    <button
+      :class="['comic__button', { 'comic__button--loading': !existsComic }]"
+      @click="updateComic()"
+    >
+      Cargar comic aleatorio
+    </button>
+  </section>
 </template>
 
 <script>
