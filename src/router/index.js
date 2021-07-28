@@ -12,7 +12,7 @@ const routes = [
   },
   {
     path: '/:comic',
-    name: 'Home2',
+    name: 'HomeValue',
     component: Home,
   },
 ];
