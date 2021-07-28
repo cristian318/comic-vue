@@ -1,7 +1,7 @@
 <template>
   <section class="comic">
     <div class="comic__title">
-      {{ current_comic.safe_title }}
+      <h1>{{ current_comic.safe_title }}</h1>
     </div>
     <div class="comic__img">
       <img :src="current_comic.img" alt="comic" />

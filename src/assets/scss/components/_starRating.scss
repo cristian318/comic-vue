@@ -1,5 +1,6 @@
 .star-rating {
   display: flex;
+  margin: 8px 0;
   &__star {
     & > img {
       user-select: none;
