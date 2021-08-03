@@ -13,7 +13,7 @@
       :class="['comic__button', { 'comic__button--loading': !existsComic }]"
       @click="updateComic()"
     >
-      Cargar comic aleatorio
+      {{ $t('loadRandomComic') }}
     </button>
   </section>
 </template>

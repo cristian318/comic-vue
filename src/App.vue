@@ -1,12 +1,20 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <div id="nav"></div>
+    <SelectorLanguage />
+    <router-view />
   </div>
 </template>
+
+<script>
+import SelectorLanguage from './components/SelectorLanguage.vue';
+
+export default {
+  components: {
+    SelectorLanguage,
+  },
+};
+</script>
 
 <style lang="scss">
 #app {
