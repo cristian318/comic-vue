@@ -10,6 +10,7 @@ export const actions = {
     commit(types.mutations.SET_currentComic, {
       ...state.currentComic,
       title: '',
+      img: '',
     });
     comicApi
       .getComic(idComic)

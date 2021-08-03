@@ -9,6 +9,8 @@
     }
   }
   &__img {
+    display: flex;
+    & > .skeleton,
     & > img {
       height: calc(75vh - 100px);
       max-width: calc(100vw - 40px);

@@ -1,10 +1,12 @@
 <template>
   <section class="comic">
     <div class="comic__title">
-      <h1>{{ currentComic.safe_title }}</h1>
+      <h1 v-if="existsComic">{{ currentComic.safe_title }}</h1>
+      <Skeleton v-else :width="300" :height="67" />
     </div>
     <div class="comic__img">
-      <img :src="currentComic.img" alt="comic" />
+      <img :src="currentComic.img" alt="comic" v-if="existsComic" />
+      <Skeleton v-else type="block" :width="600" />
     </div>
     <StarRating v-model="starModel" />
     <button
@@ -19,12 +21,14 @@
 <script>
 import { mapActions, mapState, mapGetters } from 'vuex';
 import StarRating from '@/components/StarRating.vue';
+import Skeleton from '@/components/Skeleton.vue';
 import { typesComic as types } from '@/store/modules/comic/types';
 
 export default {
   name: 'Comic',
   components: {
     StarRating,
+    Skeleton,
   },
   data() {
     return {
