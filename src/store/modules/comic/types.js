@@ -3,14 +3,14 @@ export const MODULE_COMIC = '@module/comic';
 export const typesComic = {
   PATH: MODULE_COMIC,
   getters: {
-    GET_EXISTS_CURRENT_COMIC: '@getter/getExistsCurrentComic',
+    GET_EXISTS_currentComic: '@getter/getExistsCurrentComic',
   },
   mutations: {
-    SET_CURRENT_COMIC: '@mutations/setCurrentComic',
-    SET_MAX_COUNT: '@mutations/setMaxCount',
+    SET_currentComic: '@mutations/setCurrentComic',
+    SET_maxCount: '@mutations/setMaxCount',
   },
   actions: {
-    UPDATE_CURRENT_COMIC: '@actions/updateCurrentComic',
+    UPDATE_currentComic: '@actions/updateCurrentComic',
     UPDATE_INITIAL_DATA: '@actions/updateInitialData',
   },
 };

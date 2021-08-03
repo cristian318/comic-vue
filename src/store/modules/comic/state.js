@@ -1,9 +1,9 @@
 export const state = {
-  current_comic: {
+  currentComic: {
     title: '',
     img: '',
   },
-  max_count: 100,
+  maxCount: 100,
 };
 
 export default {};

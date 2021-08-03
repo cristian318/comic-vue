@@ -5,7 +5,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import Comic from '@/components/Comic.vue';
 
 export default {

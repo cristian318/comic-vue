@@ -1,10 +1,10 @@
 <template>
   <section class="comic">
     <div class="comic__title">
-      <h1>{{ current_comic.safe_title }}</h1>
+      <h1>{{ currentComic.safe_title }}</h1>
     </div>
     <div class="comic__img">
-      <img :src="current_comic.img" alt="comic" />
+      <img :src="currentComic.img" alt="comic" />
     </div>
     <StarRating v-model="starModel" />
     <button
@@ -32,9 +32,9 @@ export default {
     };
   },
   computed: {
-    ...mapState(types.PATH, ['current_comic']),
+    ...mapState(types.PATH, ['currentComic']),
     ...mapGetters(types.PATH, {
-      existsComic: types.getters.GET_EXISTS_CURRENT_COMIC,
+      existsComic: types.getters.GET_EXISTS_currentComic,
     }),
   },
   methods: {
@@ -42,7 +42,7 @@ export default {
       return this.$route?.params?.comic ? this.$route.params.comic : '';
     },
     ...mapActions(types.PATH, {
-      updateComic: types.actions.UPDATE_CURRENT_COMIC,
+      updateComic: types.actions.UPDATE_currentComic,
       updateInitialData: types.actions.UPDATE_INITIAL_DATA,
     }),
   },
