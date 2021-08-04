@@ -1,6 +1,5 @@
 <template>
   <section class="comic">
-    <button @click="openHistory">openHistory</button>
     <History v-model="showHistory" />
     <div class="comic__title">
       <h1 v-if="existsComic">{{ currentComic.safe_title }}</h1>
@@ -11,12 +10,15 @@
       <Skeleton v-else type="block" :width="600" />
     </div>
     <StarRating v-model="starModel" />
-    <button
-      :class="['comic__button', { 'comic__button--loading': !existsComic }]"
-      @click="updateCurrentComic()"
-    >
-      {{ $t('loadRandomComic') }}
-    </button>
+    <div class="comic__buttons">
+      <button class="comic__button" @click="openHistory">openHistory</button>
+      <button
+        :class="['comic__button', { 'comic__button--loading': !existsComic }]"
+        @click="updateCurrentComic()"
+      >
+        {{ $t('loadRandomComic') }}
+      </button>
+    </div>
   </section>
 </template>
 

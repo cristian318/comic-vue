@@ -1,6 +1,6 @@
 <template>
   <div class="history">
-    <transition name="right-fade-in-transtion--small">
+    <transition name="right-fade-in-transtion-small">
       <div v-show="value" class="history__container">
         <div class="history__header">
           Historial de comics
@@ -20,6 +20,9 @@
               </template>
             </Card>
           </div>
+        </div>
+        <div class="history__footer">
+          <button class="comic__button" @click="cleanHistory">Limpiar historial</button>
         </div>
       </div>
     </transition>
@@ -52,9 +55,13 @@ export default {
   methods: {
     ...mapActions(types.PATH, {
       updateComics: types.actions.UPDATE_COMICS,
+      deleteComics: types.actions.DELETE_COMICS,
     }),
     hideHistory() {
       this.$emit('input', false);
+    },
+    cleanHistory() {
+      this.deleteComics();
     },
   },
   mounted() {

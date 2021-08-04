@@ -50,6 +50,11 @@
       margin-top: 8px;
     }
   }
+  &__footer {
+    width: 100%;
+    order: 1;
+    padding: 16px 12px 16px 24px;
+  }
   &__card-body {
     display: flex;
     flex-direction: column;
@@ -71,12 +76,12 @@
 .right-fade-in-transtion-small-enter-active,
 .right-fade-in-transtion-small-leave-active {
   transition: opacity 0.4s;
-  transition: right 0.4s;
+  transition: left 0.4s;
 }
 
 .right-fade-in-transtion-small-enter,
 .right-fade-in-transtion-small-leave-to {
-  right: -448px;
+  left: -448px;
 }
 
 div {

@@ -12,9 +12,13 @@ export const actions = {
       }
     } else {
       // fake api
-      setLocalStorage([...state.comics, payload]);
-      commit(types.mutations.SET_COMICS, [...state.comics, payload]);
+      setLocalStorage([payload, ...state.comics]);
+      commit(types.mutations.SET_COMICS, [payload, ...state.comics]);
     }
+  },
+  [types.actions.DELETE_COMICS]({ commit }) {
+    setLocalStorage([]);
+    commit(types.mutations.SET_COMICS, []);
   },
 };
 

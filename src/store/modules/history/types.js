@@ -7,6 +7,7 @@ export const typesComic = {
   },
   actions: {
     UPDATE_COMICS: '@actions/updateComics',
+    DELETE_COMICS: '@actions/deleteComics',
   },
 };
 
