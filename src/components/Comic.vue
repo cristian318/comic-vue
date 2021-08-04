@@ -45,6 +45,15 @@ export default {
       showHistory: false,
     };
   },
+  watch: {
+    currentComic: {
+      handler(newVal, oldVal) {
+        if (newVal?.num && oldVal?.num && newVal?.num !== oldVal?.num) {
+          this.$router.push(`/${newVal.num}`);
+        }
+      },
+    },
+  },
   computed: {
     ...mapState(types.PATH, ['currentComic']),
     ...mapGetters(types.PATH, {
