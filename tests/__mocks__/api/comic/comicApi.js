@@ -8,6 +8,6 @@ export default class ComicApi {
 
   // eslint-disable-next-line
   getInitialData() {
-    return Promise.resolve({ num: payloads.MAX_COUNT });
+    return Promise.resolve({ data: { num: payloads.MAX_COUNT } });
   }
 }

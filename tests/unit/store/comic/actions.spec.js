@@ -13,11 +13,18 @@ describe('Comic Actions', () => {
     jest.clearAllMocks();
   });
 
-  test('Should commit the templates returned by the api', async () => {
+  test('Should commit the comic returned by the api', async () => {
     const commit = jest.fn();
     mutations[typesComic.mutations.SET_MAX_COUNT](state, payloads.MAX_COUNT);
     await actions[typesComic.actions.UPDATE_CURRENT_COMIC]({ commit, state });
 
     expect(commit).toHaveBeenCalledWith(typesComic.mutations.SET_CURRENT_COMIC, payloads.COMIC);
+  });
+
+  test('Should commit the initialData returned by the api', async () => {
+    const commit = jest.fn();
+    await actions[typesComic.actions.UPDATE_INITIAL_DATA]({ commit });
+
+    expect(commit).toHaveBeenCalledWith(typesComic.mutations.SET_MAX_COUNT, payloads.MAX_COUNT);
   });
 });
