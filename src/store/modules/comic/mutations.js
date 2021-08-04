@@ -1,10 +1,10 @@
 import { typesComic as types } from './types';
 
 export const mutations = {
-  [types.mutations.SET_currentComic](state, payload) {
+  [types.mutations.SET_CURRENT_COMIC](state, payload) {
     state.currentComic = payload;
   },
-  [types.mutations.SET_maxCount](state, payload) {
+  [types.mutations.SET_MAX_COUNT](state, payload) {
     state.maxCount = payload;
   },
 };

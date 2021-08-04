@@ -21,6 +21,11 @@ export default {
       default: () => 0,
     },
   },
+  watch: {
+    value(newVal) {
+      this.star = newVal;
+    },
+  },
   data() {
     return {
       star: 0,
