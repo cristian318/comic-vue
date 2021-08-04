@@ -11,7 +11,9 @@
     </div>
     <StarRating v-model="starModel" />
     <div class="comic__buttons">
-      <button class="comic__button" @click="openHistory">openHistory</button>
+      <button class="comic__button" @click="openHistory">
+        {{ $t('openHistory') }}
+      </button>
       <button
         :class="['comic__button', { 'comic__button--loading': !existsComic }]"
         @click="updateCurrentComic()"
@@ -75,7 +77,6 @@ export default {
   },
   mounted() {
     this.updateInitialData(this.validateRoute());
-    console.log(this.updateComics);
   },
 };
 </script>

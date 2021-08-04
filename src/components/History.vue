@@ -3,7 +3,7 @@
     <transition name="right-fade-in-transtion-small">
       <div v-show="value" class="history__container">
         <div class="history__header">
-          Historial de comics
+          {{ $t('comicsHistory') }}
           <em class="history__close" @click="hideHistory">x</em>
         </div>
         <div class="history__body">
@@ -22,7 +22,9 @@
           </div>
         </div>
         <div class="history__footer">
-          <button class="comic__button" @click="cleanHistory">Limpiar historial</button>
+          <button class="comic__button" @click="cleanHistory">
+            {{ $t('clearHistory') }}
+          </button>
         </div>
       </div>
     </transition>
