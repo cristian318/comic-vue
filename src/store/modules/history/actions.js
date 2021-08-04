@@ -5,10 +5,9 @@ export const actions = {
   [types.actions.UPDATE_COMICS]({ state, commit }, payload) {
     if (state.comics.length === 0 && !payload) {
       // fake api
-      const comics = getLocalStorage();
-
-      console.log(comics);
+      let comics = getLocalStorage();
       if (comics.length > 0) {
+        comics = comics.filter((comic) => !!comic);
         commit(types.mutations.SET_COMICS, [...comics]);
       }
     } else {

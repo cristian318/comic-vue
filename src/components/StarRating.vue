@@ -1,6 +1,11 @@
 <template>
   <div @mouseleave="onMouseLeave" class="star-rating">
-    <span v-for="n in 5" :key="n" @mouseover="onMouseOver(n)" class="star-rating__star">
+    <span
+      v-for="n in 5"
+      :key="n"
+      @mouseover="onMouseOver(n)"
+      :class="['star-rating__star', { 'star-rating__star--disabled': disabled }]"
+    >
       <img :src="getImage(n)" alt="star" @click="selectStar(n)" />
     </span>
   </div>
@@ -20,6 +25,10 @@ export default {
       type: Number,
       default: () => 0,
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
   watch: {
     value(newVal) {
@@ -33,11 +42,15 @@ export default {
   },
   methods: {
     selectStar(star) {
-      this.star = star;
-      this.$emit('input', star);
+      if (!this.disabled) {
+        this.star = star;
+        this.$emit('input', star);
+      }
     },
     onMouseOver(star) {
-      this.star = star;
+      if (!this.disabled) {
+        this.star = star;
+      }
     },
     onMouseLeave() {
       this.star = this.value;
@@ -51,6 +64,9 @@ export default {
       }
       return srcImage;
     },
+  },
+  mounted() {
+    this.onMouseLeave();
   },
 };
 </script>

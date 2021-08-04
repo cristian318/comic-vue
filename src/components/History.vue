@@ -8,8 +8,17 @@
         </div>
         <div class="history__body">
           <div v-for="(item, i) of comics" :key="i">
-            elment
-            {{ item }}
+            <Card>
+              <template #header>
+                {{ item.title }}
+              </template>
+              <template #body>
+                <div class="history__card-body">
+                  <img :src="item.img" alt="image-comic" />
+                  <StarRating v-model="item.stars" disabled />
+                </div>
+              </template>
+            </Card>
           </div>
         </div>
       </div>
@@ -23,8 +32,14 @@
 <script>
 import { mapActions, mapState } from 'vuex';
 import { typesComic as types } from '@/store/modules/history/types';
+import Card from './Card.vue';
+import StarRating from './StarRating.vue';
 
 export default {
+  components: {
+    Card,
+    StarRating,
+  },
   props: {
     value: {
       type: Boolean,

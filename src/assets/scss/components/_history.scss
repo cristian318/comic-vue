@@ -46,6 +46,16 @@
     overflow: auto;
     order: 1;
     flex-grow: 1;
+    .card {
+      margin-top: 8px;
+    }
+  }
+  &__card-body {
+    display: flex;
+    flex-direction: column;
+    .star-rating {
+      justify-content: center;
+    }
   }
 }
 
